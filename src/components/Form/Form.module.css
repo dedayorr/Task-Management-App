@@ -1,0 +1,70 @@
+.formed{
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 90%;
+    margin: 50px auto;
+    gap: 20px;
+    padding: 0% 3% 20%;
+    /* margin-bottom: 20%; */
+    background-color: white;
+}
+
+.formed > p {
+    font-size: 50px;
+    text-align: center;
+}
+
+input{
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 1%;
+}
+
+.btn{
+    color: white;
+    width: 50%;
+    height: 30px;
+    margin: 0 auto;
+    /* color: orange; */
+    font-size: 15px;
+    background-color: aliceblue;
+    border: none;
+    background: rgb(41,18,154);
+    background: linear-gradient(270deg, rgba(41, 18, 154, 0.698) 34%, rgba(251,221,166,1) 90%);
+    /* border-radius: 10px; */
+}
+
+.regLink{
+    text-align: center;
+    font-size:20px;
+}
+.regLink:hover{
+    color: blue;
+}
+
+@media (min-width: 768px){
+    .formed{
+        width: 80%;
+        margin: 10% auto;
+    }
+
+    input{
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid;
+        padding: 1%;
+    }
+
+    .btn{
+        margin-top: 20px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+    }
+
+    button:hover{
+        box-shadow: rgba(0, 0, 0, 0.789) 0px 3px 8px;
+    }
+}

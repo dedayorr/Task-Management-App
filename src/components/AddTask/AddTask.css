@@ -1,0 +1,68 @@
+.btn-three{
+    color: white;
+    width: 50%;
+    height: 30px;
+    margin: 20% 5%;
+    font-size: 15px;
+    background-color: aliceblue;
+    border: none;
+    background: rgb(41,18,154);
+    background: linear-gradient(270deg, rgba(41, 18, 154, 0.698) 34%, rgba(251,221,166,1) 90%);
+}
+
+.theForm{
+    position: relative; 
+    top: 50px;
+    /* border: 1px solid black; */
+    /* margin: 0 auto; */
+    /* width: 90%; */
+}
+
+form > input {
+    width: 90%;
+    margin: 0 5%;
+
+}
+
+form > textarea{
+    width: 90%;
+    margin: 0 5%;
+}
+
+form > .addTask {
+    font-size: 40px;
+    text-align: center;
+    margin: 15px;
+    color: white;
+}
+
+.icon{
+    font-size: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    right: 0px;
+}
+
+@media (min-width:789px){
+    .btn-three{
+        margin-top: 20px;
+        height: 50px;
+        font-size: 20px;
+        color: white;
+        width: 20%;
+        margin: 5% 40%;
+    }
+
+    form > .addTask {
+        font-size: 60px;
+        text-align: center;
+        margin: 20px;
+    }
+
+    .theForm{
+        gap: 20%;
+        width: 40%;
+        margin: 0 auto;
+    }
+}
