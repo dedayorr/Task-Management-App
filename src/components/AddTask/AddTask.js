@@ -90,6 +90,7 @@ export const AddTask = ({ func, setOpenCreateTask }) => {
               Add Task
             </button>
           )}
+          
       </div>
     </>
   );

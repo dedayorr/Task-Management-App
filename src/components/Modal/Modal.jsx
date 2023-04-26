@@ -1,10 +1,6 @@
-import React from 'react'
-import styles from "./Modal.module.css"
+import React from "react";
+import styles from "./Modal.module.css";
 
-export const Modal = ({children}) => {
-  return (
-    <div className={styles.container}>
-{children}
-    </div>
-  )
-}
+export const Modal = ({ children }) => {
+  return <div className={styles.container}>{children}</div>;
+};

@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route} from "react-router-dom";
 import Navigation from "./components/Layout/Navigation/Navigation";
-// import { Alltasks } from "./Screens/Alltasks";
+
 import { Edittasks } from "./Screens/Edittasks";
 import { Home } from "./Screens/Home";
 import Notfound from "./Screens/Notfound";
@@ -15,7 +15,6 @@ export const Router = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/tasks" element={<Alltasks />} /> */}
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/task/:id/edit" element={<Edittasks />} />
         <Route path="/register" element={<Register />} />
