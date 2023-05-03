@@ -6,7 +6,7 @@ function Tasklist({ tasks, getTasks }) {
   return (
     <div className={styles.tasklist}>
       {tasks && tasks.length > 0 ? (
-        tasks.map((task) => <Taskcard key={task.id} task={task} getTasks={getTasks}/>)
+        tasks.map((task) => <Taskcard key={task._id} task={task} getTasks={getTasks}/>)
       ) : (
         <div className="">
           {" "}

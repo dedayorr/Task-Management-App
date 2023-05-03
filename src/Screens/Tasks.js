@@ -5,6 +5,7 @@ import { Modal } from "../components/Modal/Modal";
 import "./Task.css";
 import Tasklist from "../components/Tasklist/Tasklist";
 import { UpdateTask } from "../components/UpdateTask/UpdateTask";
+import axios from "axios";
 
 export const Tasks = () => {
   const [openCreateTask, setOpenCreateTask] = useState(false);
@@ -15,11 +16,23 @@ export const Tasks = () => {
     getTasks();
   }, [openCreateTask]);
 
+  // function getTasks() {
+  //   const tasks = localStorage.getItem("tasks");
+  //   const tasksJSON = JSON.parse(tasks);
+  //   console.log(tasksJSON);
+  //   setTasks(tasksJSON);
+  // }
+
   function getTasks() {
-    const tasks = localStorage.getItem("tasks");
-    const tasksJSON = JSON.parse(tasks);
-    console.log(tasksJSON);
-    setTasks(tasksJSON);
+    axios
+      .get("/tasks")
+      .then((response) => {
+        console.log(response.data);
+        setTasks(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   return (
@@ -42,7 +55,7 @@ export const Tasks = () => {
         </Modal>
       )}
 
-      <Tasklist tasks={tasks} getTasks={getTasks}/>
+      <Tasklist tasks={tasks} getTasks={getTasks} />
     </div>
   );
 };

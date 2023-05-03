@@ -1,9 +1,10 @@
- import React from "react";
+import React from "react";
 import styles from "./Taskcard.module.css";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
-
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function Taskcard({ task, getTasks }) {
   // const [count, setCount] = useState(0)
@@ -16,20 +17,29 @@ function Taskcard({ task, getTasks }) {
   //   }
   // };
 
-  const removeId =(id)=>{
-    // console.log(id)
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
-    const tasksCopy = [...tasks];
+  const removeId = (id) => {
+    console.log(id);
+    // const tasks = JSON.parse(localStorage.getItem("tasks"));
+    // const tasksCopy = [...tasks];
 
-    const newTasks = tasksCopy.filter((item)=> item.id !== id);
-    console.log(newTasks)
-    localStorage.setItem("tasks", JSON.stringify(newTasks))
-  }
+    // const newTasks = tasksCopy.filter((item)=> item.id !== id);
+    // console.log(newTasks)
+    // localStorage.setItem("tasks", JSON.stringify(newTasks))
+    axios
+      .delete(`/tasks/${id}`)
+      .then(() => {
+        toast.success("Task deleted");
+        getTasks();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-  const removeTaskHandler = (id)=>{
-    removeId(id)
-    getTasks()
-  }
+  // const removeTaskHandler = (id) => {
+  //   removeId(id);
+  //   getTasks();
+  // };
 
   return (
     <div className={styles.cover}>
@@ -44,11 +54,11 @@ function Taskcard({ task, getTasks }) {
 
         <div className={styles.icons}>
           <div className={styles.subicon}>
-            <RiDeleteBinLine onClick={()=>removeTaskHandler(task.id)}/>
+            <RiDeleteBinLine onClick={() => removeId(task._id)} />
             <FaEdit />
           </div>
           <div>
-          <BsShareFill/>
+            <BsShareFill />
           </div>
         </div>
       </div>
