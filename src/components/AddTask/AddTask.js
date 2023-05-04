@@ -44,7 +44,6 @@ export const AddTask = ({ func, setOpenCreateTask }) => {
         .post("/create", data)
         .then(() => {
           setLoading(false);
-
           toast.success("Task created");
           setOpenCreateTask(false);
         })

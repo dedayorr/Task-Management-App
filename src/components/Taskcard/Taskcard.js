@@ -7,15 +7,6 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 function Taskcard({ task, getTasks }) {
-  // const [count, setCount] = useState(0)
-  // const truncate = (str, num) => {
-  //   if (str.length > num) {
-  //     if (str.length > num) {
-  //       str = str.substring(0, num) + "...";
-  //       return str;
-  //     }
-  //   }
-  // };
 
   const removeId = (id) => {
     console.log(id);

@@ -6,6 +6,7 @@ import "./Task.css";
 import Tasklist from "../components/Tasklist/Tasklist";
 import { UpdateTask } from "../components/UpdateTask/UpdateTask";
 import axios from "axios";
+import { BASE_URL } from "../config";
 
 export const Tasks = () => {
   const [openCreateTask, setOpenCreateTask] = useState(false);
@@ -23,11 +24,12 @@ export const Tasks = () => {
   //   setTasks(tasksJSON);
   // }
 
+  console.log(BASE_URL, "BASE_URL");
   function getTasks() {
     axios
-      .get("/tasks")
+      .get(`https://task-mgt-8mh7.onrender.com/tasks`)
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data, "responseData");
         setTasks(response.data);
       })
       .catch((error) => {
@@ -55,7 +57,7 @@ export const Tasks = () => {
         </Modal>
       )}
 
-      <Tasklist tasks={tasks} getTasks={getTasks} />
+      <Tasklist tasks={tasks ? tasks : []} getTasks={getTasks} />
     </div>
   );
 };
