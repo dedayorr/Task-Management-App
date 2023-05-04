@@ -27,7 +27,7 @@ export const Tasks = () => {
   console.log(BASE_URL, "BASE_URL");
   function getTasks() {
     axios
-      .get(`https://task-mgt-8mh7.onrender.com/tasks`)
+      .get(`${BASE_URL}/tasks`)
       .then((response) => {
         console.log(response.data, "responseData");
         setTasks(response.data);
