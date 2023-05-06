@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { BsShareFill } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../../config";
 
 function Taskcard({ task, getTasks }) {
 
@@ -17,7 +18,7 @@ function Taskcard({ task, getTasks }) {
     // console.log(newTasks)
     // localStorage.setItem("tasks", JSON.stringify(newTasks))
     axios
-      .delete(`/tasks/${id}`)
+      .delete(`${BASE_URL}/tasks/${id}`)
       .then(() => {
         toast.success("Task deleted");
         getTasks();

@@ -6,6 +6,7 @@ import Spinner from "../Spinner/Spinner";
 import { toast } from "react-toastify";
 // import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
+import { BASE_URL } from "../../config";
 
 export const AddTask = ({ func, setOpenCreateTask }) => {
   const [loading, setLoading] = useState(false);
@@ -33,26 +34,23 @@ export const AddTask = ({ func, setOpenCreateTask }) => {
     }
     setLoading(true);
     const data = { title, desc, date };
+    // const tasks = localStorage.getItem("tasks")
+    //   ? JSON.parse(localStorage.getItem("tasks"))
+    //   : [];
+    // const taskcopy = [...tasks, data];
+    // localStorage.setItem("tasks", JSON.stringify(taskcopy));
+    axios
+      .post(`${BASE_URL}/create`, data)
+      .then(() => {
+        setLoading(false);
+        toast.success("Task created");
+        setOpenCreateTask(false);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-    setTimeout(() => {
-      // const tasks = localStorage.getItem("tasks")
-      //   ? JSON.parse(localStorage.getItem("tasks"))
-      //   : [];
-      // const taskcopy = [...tasks, data];
-      // localStorage.setItem("tasks", JSON.stringify(taskcopy));
-      axios
-        .post("/create", data)
-        .then(() => {
-          setLoading(false);
-          toast.success("Task created");
-          setOpenCreateTask(false);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-
-      setState({ title: "", desc: "", date: "" });
-    }, 3000);
+    setState({ title: "", desc: "", date: "" });
   }
 
   return (
