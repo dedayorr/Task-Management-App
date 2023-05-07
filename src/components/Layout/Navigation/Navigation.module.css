@@ -30,6 +30,12 @@
     list-style: none;
 }
 
+.image{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}
+
 @media (min-width: 768px){
     .container > a {
         text-decoration: none;
@@ -42,6 +48,12 @@
         color: aliceblue;
         margin-right: 40px;
         transition: 1s all ease-in;
+    }
+
+    .image{
+        width: 70px;
+        display: flex;
+        justify-content: center;
     }
 }
 

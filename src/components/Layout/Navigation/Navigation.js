@@ -5,7 +5,7 @@ import styles from "./Navigation.module.css";
 const Navigation = () => {
   return (
     <div className={styles.container}>
-      <Link to="/">LOGO</Link>
+      <Link to="/"><img className={styles.image} src="./task.png" alt=""/></Link>
       <ul>
         <li>
           <Link to="/">Home</Link>
