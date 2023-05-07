@@ -17,13 +17,6 @@ export const Tasks = () => {
     getTasks();
   }, [openCreateTask]);
 
-  // function getTasks() {
-  //   const tasks = localStorage.getItem("tasks");
-  //   const tasksJSON = JSON.parse(tasks);
-  //   console.log(tasksJSON);
-  //   setTasks(tasksJSON);
-  // }
-
   console.log(BASE_URL, "BASE_URL");
   function getTasks() {
     axios
@@ -53,11 +46,11 @@ export const Tasks = () => {
       {/* update task */}
       {openUpdateTask && (
         <Modal>
-          <UpdateTask setOpenUpdateTask={setOpenUpdateTask} />
+          <UpdateTask setOpenUpdateTask={setOpenUpdateTask}/>
         </Modal>
       )}
 
-      <Tasklist tasks={tasks ? tasks : []} getTasks={getTasks} />
+      <Tasklist tasks={tasks ? tasks : []} getTasks={getTasks} setOpenUpdateTask={setOpenUpdateTask} />
     </div>
   );
 };

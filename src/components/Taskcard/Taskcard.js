@@ -7,7 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../config";
 
-function Taskcard({ task, getTasks }) {
+function Taskcard({ task, getTasks, setOpenUpdateTask, }) {
 
   const removeId = (id) => {
     console.log(id);
@@ -47,7 +47,7 @@ function Taskcard({ task, getTasks }) {
         <div className={styles.icons}>
           <div className={styles.subicon}>
             <RiDeleteBinLine onClick={() => removeId(task._id)} />
-            <FaEdit />
+            <FaEdit onClick={()=> setOpenUpdateTask(true)}/>
           </div>
           <div>
             <BsShareFill />

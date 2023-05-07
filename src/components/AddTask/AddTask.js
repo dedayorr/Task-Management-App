@@ -4,7 +4,6 @@ import { useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import Spinner from "../Spinner/Spinner";
 import { toast } from "react-toastify";
-// import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { BASE_URL } from "../../config";
 
