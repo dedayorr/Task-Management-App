@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Taskcard.module.css";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaEdit } from "react-icons/fa";
@@ -6,17 +6,12 @@ import { BsShareFill } from "react-icons/bs";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { BASE_URL } from "../../config";
+import { ContextProvider } from "../Context";
 
-function Taskcard({ task, getTasks, setOpenUpdateTask, }) {
-
+function Taskcard({ task, getTasks, setOpenUpdateTask }) {
+  const { retrieveTask } = useContext(ContextProvider);
   const removeId = (id) => {
-    console.log(id);
-    // const tasks = JSON.parse(localStorage.getItem("tasks"));
-    // const tasksCopy = [...tasks];
-
-    // const newTasks = tasksCopy.filter((item)=> item.id !== id);
-    // console.log(newTasks)
-    // localStorage.setItem("tasks", JSON.stringify(newTasks))
+    // console.log(id);
     axios
       .delete(`${BASE_URL}/tasks/${id}`)
       .then(() => {
@@ -27,11 +22,6 @@ function Taskcard({ task, getTasks, setOpenUpdateTask, }) {
         console.log(error);
       });
   };
-
-  // const removeTaskHandler = (id) => {
-  //   removeId(id);
-  //   getTasks();
-  // };
 
   return (
     <div className={styles.cover}>
@@ -47,7 +37,12 @@ function Taskcard({ task, getTasks, setOpenUpdateTask, }) {
         <div className={styles.icons}>
           <div className={styles.subicon}>
             <RiDeleteBinLine onClick={() => removeId(task._id)} />
-            <FaEdit onClick={()=> setOpenUpdateTask(true)}/>
+            <FaEdit
+              onClick={() => {
+                setOpenUpdateTask(true);
+                retrieveTask();
+              }}
+            />
           </div>
           <div>
             <BsShareFill />
